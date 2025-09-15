@@ -8,26 +8,32 @@ const blockchainNetworks = [
   {
     icon: "/fi-15301597.svg",
     name: "Ethereum",
+    link: "https://ethereum.org",
   },
   {
     icon: "/fi-12114233.svg",
     name: "Polygon",
+    link: "https://polygon.technology",
   },
   {
     icon: "/fi-15208359.svg",
     name: "BNB",
+    link: "https://www.bnbchain.org",
   },
   {
     icon: "/fi-15208284.svg",
     name: "Arbitrum",
+    link: "https://arbitrum.io",
   },
   {
     icon: "/fi-15301496.svg",
     name: "Avalanche",
+    link: "https://www.avax.network",
   },
   {
     icon: "/fi-15301766.svg",
     name: "Solana",
+    link: "https://solana.com",
   },
 ];
 
@@ -56,6 +62,7 @@ const tokenCards = [
     network: "Ethereum (EVM)",
     bgColor: "bg-[#ddddd]",
     accentColor: "bg-color02shade-01",
+    networkLink: "https://ethereum.org",
   },
   {
     icon: "/token-2.png",
@@ -63,6 +70,7 @@ const tokenCards = [
     network: "Solana",
     bgColor: "bg-neutraul01-ddddd",
     accentColor: "bg-color02shade-01",
+    networkLink: "https://solana.com",
   },
   {
     icon: "/token-3.png",
@@ -70,6 +78,7 @@ const tokenCards = [
     network: "BNB Chain (EVM)",
     bgColor: "bg-neutraul01-ddddd",
     accentColor: "bg-color02shade-01",
+    networkLink: "https://www.bnbchain.org",
   },
   {
     icon: "/token-4.png",
@@ -77,6 +86,7 @@ const tokenCards = [
     network: "Polygon (EVM)",
     bgColor: "bg-neutraul02-d9d9d9",
     accentColor: "bg-color03shade-03",
+    networkLink: "https://polygon.technology",
   },
   {
     icon: "/token-5.png",
@@ -84,6 +94,7 @@ const tokenCards = [
     network: "Arbitrum (EVM)",
     bgColor: "bg-neutraul02-d9d9d9",
     accentColor: "bg-color03shade-03",
+    networkLink: "https://arbitrum.io",
   },
   {
     icon: "/token-6.png",
@@ -91,6 +102,7 @@ const tokenCards = [
     network: "Avalanche (EVM)",
     bgColor: "bg-neutraul02-d9d9d9",
     accentColor: "bg-color04shade-01",
+    networkLink: "https://www.avax.network",
   },
 ];
 
@@ -127,23 +139,26 @@ export default function SolutionsAndBlogSubsection  () {
         <Card className="flex items-center justify-center gap-16 max-[1000px]:gap-8 px-[132px] max-[767px]:px-[80px] max-[500px]:px-10 max-[500px]:px-5 py-[38px] relative self-stretch w-full flex-[0_0_auto] bg-[#222325] rounded-2xl border-0">
           <CardContent className="flex items-center justify-center max-[767px]:flex-wrap gap-16 max-[1000px]:gap-8 p-0">
             {blockchainNetworks.map((network, index) => (
-              <motion.div
+              <motion.a
                 key={index}
+                href={network.link}
+                target="_blank"
+                rel="noopener noreferrer"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                 transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
                 whileHover={{ scale: 1.1, y: -5 }}
-                className="inline-flex flex-col items-center justify-center relative flex-[0_0_auto] cursor-pointer transition-all duration-300"
+                className="inline-flex flex-col items-center justify-center relative flex-[0_0_auto] cursor-pointer transition-all duration-300 hover:text-[#dddddd]"
               >
                 <img
                   className="relative w-10 h-10"
-                  alt="Fi"
+                  alt={`${network.name} blockchain`}
                   src={network.icon}
                 />
                 <div className="relative font-karla font-regular  text-[#5e6b7e] text-[] tracking-[] leading-[] whitespace-nowrap">
                   {network.name}
                 </div>
-              </motion.div>
+              </motion.a>
             ))}
           </CardContent>
         </Card>
@@ -294,9 +309,14 @@ export default function SolutionsAndBlogSubsection  () {
                           {token.name}
                         </h3>
 
-                        <p className="relative self-stretch font-karla font-regular  text-[#dddddd] text-[18px] max-[767px]:text-[16px] max-[767px]:leading-[22px] tracking-[-2%] leading-[27px]">
+                        <a 
+                          href={token.networkLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="relative self-stretch font-karla font-regular text-[#dddddd] text-[18px] max-[767px]:text-[16px] max-[767px]:leading-[22px] tracking-[-2%] leading-[27px] hover:text-[#5e6b7e] transition-colors duration-300 cursor-pointer"
+                        >
                           {token.network}
-                        </p>
+                        </a>
                       </div>
 
                       <div className="items-center justify-between pt-[34px] pb-8 px-8 ] relative self-stretch w-full flex-[0_0_auto] rounded-[0px_0px_24px_24px] flex bg-[#222325] overflow-hidden">

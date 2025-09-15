@@ -15,6 +15,7 @@ const featuresData = [
     subtractImage: "/subtract.png",
     topOffset: "top-[10px]",
     imageAlt: "Slices",
+    link: "https://ethereum.org",
   },
   {
     id: 2,
@@ -42,13 +43,13 @@ const featuresData = [
     id: 4,
     title: "Instant Deployment",
     description: "Go live on - chain in minutes with zero hassle",
-    img:'/top-3.png',
+    img:'/top-.png',
     backgroundImage: "",
     mainImage: "/crystal.png",
     subtractImage: "/subtract-1.svg",
-    topOffset: "top-[10px]",
+    topOffset: "top-[22px]",
     imageAlt: "Crystal",
-    hasSpecialLayout: true,
+    hasSpecialLayout: false,
   },
 ];
 
@@ -138,11 +139,26 @@ export default function FeaturesSubsection  () {
                   <div
                     className={`relative w-[420px] max-[1000px]:w-[350px] max-[500px]:w-[300px] h-[410px] ${feature.id === 1 ? "top-[-185px]" : "top-[-205px]"}`}
                   >
-                    <img
-                      className={`absolute w-[420px] max-[1000px]:w-[350px] max-[500px]:w-[300px] h-full  ${feature.topOffset} left-[0px] z-20`}
-                      alt="Feature"
-                      src={feature.img}
-                    />
+                    {feature.link ? (
+                      <a
+                        href={feature.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block"
+                      >
+                        <img
+                          className={`absolute w-[420px] max-[1000px]:w-[350px] max-[500px]:w-[300px] h-full  ${feature.topOffset} left-[0px] z-20 hover:opacity-80 transition-opacity duration-300 cursor-pointer`}
+                          alt="Feature"
+                          src={feature.img}
+                        />
+                      </a>
+                    ) : (
+                      <img
+                        className={`absolute w-[420px] max-[1000px]:w-[350px] max-[500px]:w-[300px] h-full  ${feature.topOffset} left-[0px] z-20`}
+                        alt="Feature"
+                        src={feature.img}
+                      />
+                    )}
                   </div>
 
                   {feature.id === 4 && (
