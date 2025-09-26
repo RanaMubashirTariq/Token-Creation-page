@@ -130,7 +130,7 @@ export default function FeaturesSubsection  () {
               className="transition-all duration-300"
             >
             <Card
-              className={`inline-flex flex-col items-start z-20   border-0 shadow-none ${index === 3 ? "mr-[-360.00px]" : ""}`}
+              className={`inline-flex flex-col items-start z-20   border-0 shadow-none ${index === featuresData.length - 1 ? "mr-[80px] max-[1100px]:mr-[50px] max-[767px]:mr-[25px]" : ""}`}
             >
               <CardContent className="p-0 w-full ">
                 {/* <div className="absolute w-[340px] h-[340px] top-[15px] left-10 bg-[#d9d9d9] shadow-[0px_20px_32px_#00000040]" /> */}
@@ -212,7 +212,7 @@ export default function FeaturesSubsection  () {
         initial={{ opacity: 0, scaleX: 0 }}
         animate={isInView ? { opacity: 1, scaleX: 1 } : { opacity: 0, scaleX: 0 }}
         transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-        className="w-full max-w-[1440px] max-[1500px]:max-w-[1200px] max-[1100px]:max-w-[800px] h-2 my-10 max-[1500px]:ml-[-70px] max[1000px]:ml-[100px] max-[1000px]:max-w-[700px] max-[830px]:ml-[0px] max-[800px]:ml-[20px] max-[600px]:max-w-[500px] max-[500px]:max-w-[400px] max-[400px]:max-w-[330px] max-[400px]:left-[-10px] max-[350px]:max-w-[280px]  relative bg-[#101010] rounded-full overflow-hidden"
+        className="w-full max-w-[1440px] max-[1500px]:max-w-[1200px] max-[1300px]:max-w-[1100px] max-[1100px]:max-w-[900px] h-2 my-10 max-[1500px]:ml-[-70px] max-[1300px]:ml-[0px]  max[1000px]:ml-[100px] max-[1000px]:max-w-[700px] max-[830px]:ml-[0px] max-[800px]:ml-[20px] max-[600px]:max-w-[500px] max-[500px]:max-w-[350px] max-[400px]:max-w-[330px] max-[400px]:left-[-10px] max-[350px]:max-w-[280px]  relative bg-[#101010] rounded-full overflow-hidden"
       >
           <motion.div
             className="absolute top-0 h-full bg-[#222222] rounded-full transition-[left,width] duration-150"
